@@ -1,7 +1,6 @@
 angular.module('todoApp').controller 'TodoEditController', ($scope, $state, todoStorage) ->
   new class TodoEditController
     constructor: ->
-      console.log 'Loading TodoEditController'
       $scope.ctrl = @
       $scope.todo = @todo = angular.copy(todoStorage.todos[$state.params.todoIndex])
       if not @todo?
