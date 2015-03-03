@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="todoApp" ng-strict-di>
+<html lang="en" ng-app="todoApp">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,24 +9,15 @@
   <link rel="stylesheet" href="css/base.css">
 </head>
 <body class="todoapp">
-  <div ng-controller="TodoController as todos">
-    <span>{{todos.remaining()}} of {{todos.list.length}} remaining</span>
-    [<a href="" ng-click="todos.archive()">archive</a>]
-    <!-- TODO: move to todo-list -->
-    <ul>
-      <li ng-repeat="todo in todos.list">
-        <input type="checkbox" ng-model="todo.done">
-        <span class="done-{{todo.done}}">{{todo.text}}</span>
-      </li>
-    </ul>
-    <form ng-submit="todos.addTodo()">
-      <input type="text" ng-model="todos.input" placeholder="add a new todo">
-      <input type="submit" value="add">
-    </form>
-  </div>
+  <div ui-view></div>
 
   <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
   <script src="js/app.js"></script>
   <script src="js/controllers/todo-controller.js"></script>
+  <script src="js/controllers/todo-edit-controller.js"></script>
+  <script src="js/directives/todo-list.js"></script>
+  <script src="js/services/todo-storage.js"></script>
 </body>
 </html>

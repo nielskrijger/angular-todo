@@ -1,0 +1,7 @@
+<ul id="todo-list">
+  <li ng-repeat="todo in todos">
+    <input type="checkbox" ng-model="todo.completed" ng-change="ctrl.saveTodo(todo, $index)">
+    <span class="done-{{todo.completed}}">{{todo.text}}</span>
+    <span><a ui-sref="todos-edit({todoIndex: $index})">edit</a></span>
+  </li>
+</ul>

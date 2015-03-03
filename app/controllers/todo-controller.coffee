@@ -1,28 +1,30 @@
-angular.module('todoApp').controller 'TodoController',
-  class TodoController
-    list: [
-      text: "learn coffescript"
-      done: false
-    ,
-      text: "learn angular"
-      done: true
-    ]
+angular.module('todoApp').controller 'TodoController', ($scope, todoStorage) ->
+  new class TodoController
+    constructor: ->
+      $scope.ctrl = @
+      @input = null
+      @todos = todoStorage.todos
+      console.log todoStorage
+      console.log 'Loaded TodoController'
 
     addTodo: ->
-      @list.push
-        text: @input
-        done: false
-      @input = ''
+      console.log "Adding todo", @input
+      if @input?
+        todoStorage.insert
+          text: @input
+          completed: false
+      @input = null
 
     remaining: ->
+      console.log "Get remaining todos"
       count = 0
-      for todo in @list
-        count += if todo.done then 0 else 1
+      for todo in @todos
+        count += if todo.completed then 0 else 1
       count
 
-    archive: ->
-      oldList = @list
-      @list = []
-      for todo in oldList
-        unless todo.done
-          @list.push todo
+    clearCompleted: ->
+      console.log "Clear completed todos"
+      todoStorage.clearCompleted()
+
+    clearAll: ->
+      todoStorage.clearAll()

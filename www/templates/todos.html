@@ -1,0 +1,11 @@
+<h1>Todos</h1>
+<span>{{ctrl.remaining()}} of {{ctrl.todos.length}} remaining</span>
+[<a href="" ng-click="ctrl.clearCompleted()">remove completed</a>]
+[<a href="" ng-click="ctrl.clearAll()">reset</a>]
+
+<todo-list todos="ctrl.todos"></todo-list>
+
+<form ng-submit="ctrl.addTodo()">
+  <input type="text" ng-model="ctrl.input" placeholder="add a new todo">
+  <input type="submit" value="Add">
+</form>

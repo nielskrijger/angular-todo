@@ -1,0 +1,15 @@
+<h1>Edit todo</h1>
+<div class="form">
+  <table>
+    <tr>
+      <td>Text</td>
+      <td><input type="text" ng-model="todo.text" /></td>
+    </tr>
+    <tr>
+      <td>Completed?</td>
+      <td><input type="checkbox" ng-model="todo.completed" /></td>
+    </tr>
+  </table>
+</div>
+<button class="btn" ng-click="ctrl.save()">Save</button>
+  <button class="btn" ng-click="ctrl.cancel()">Cancel</button>
