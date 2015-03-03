@@ -10,4 +10,4 @@ You require [gulp](http://www.gulpjs.com) to run the webserver like this:
 gulp webserver
 ```
 
-This command compiles coffeescript sources into `/www/js` and starts a watcher with live-reload.
+This command compiles coffeescript sources into `/www/js` and starts a watcher with live-reload. It should automatically start a browser window pointing to `http://localhost:3050/`.
